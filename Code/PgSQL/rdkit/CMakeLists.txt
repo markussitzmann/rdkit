@@ -1,6 +1,18 @@
+project(RDKitPostgreSQL)
+enable_testing()
+
+find_package(RDKit REQUIRED)
+include_directories(${RDKit_INCLUDE_DIRS})
+
+find_package(PostgreSQL REQUIRED)
+find_package(Boost 1.39.0 REQUIRED COMPONENTS serialization)
+find_package(Cairo REQUIRED)
+find_package(Eigen3 REQUIRED)
+find_package(Threads REQUIRED)
+
 if(APPLE)
-  set (EXTENSION_PREFIX "")
-  set (EXTENSION_SUFFIX ".so")
+   set (EXTENSION_PREFIX "")
+   set (EXTENSION_SUFFIX ".so")
 else(APPLE)
   set (EXTENSION_PREFIX "lib")
   set (EXTENSION_SUFFIX "")
